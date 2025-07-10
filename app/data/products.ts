@@ -14,7 +14,7 @@ const products: Product[] = [
     name: "Men's Custom Suit - Navy Blue",
     price: 120.0,
     description: "Perfect tailored navy suit with premium fabric options.",
-    image: "/images/suit1.jpg",
+    image: "/images/Suit1.jpg",
     category: "Suit",
   },
   {
@@ -22,7 +22,7 @@ const products: Product[] = [
     name: "Men's Custom Suit - Charcoal Grey",
     price: 130.0,
     description: "Stylish charcoal grey suit tailored to fit.",
-    image: "/images/suit2.jpg",
+    image: "/images/Suit2.jpg",
     category: "Suit",
   },
   {
@@ -48,7 +48,7 @@ const products: Product[] = [
     name: "Men's Casual Shirt - Light Blue",
     price: 30.0,
     description: "Comfortable casual shirt with fine stitching.",
-    image: "/images/shirt2.jpg",
+    image: "/images/Shirt2.jpg",
     category: "Shirt",
   },
   {
@@ -56,7 +56,7 @@ const products: Product[] = [
     name: "Men's Designer Shirt - Checked",
     price: 40.0,
     description: "Designer checked shirt tailored to your size.",
-    image: "/images/shirt3.jpg",
+    image: "/images/Shirt3.jpg",
     category: "Shirt",
   },
 
@@ -66,7 +66,7 @@ const products: Product[] = [
     name: "Men's Formal Pant - Black",
     price: 50.0,
     description: "Elegant black pant with a perfect finish.",
-    image: "/images/pants1.jpg",
+    image: "/images/Pants1.jpg",
     category: "Pant",
   },
   {
@@ -74,7 +74,7 @@ const products: Product[] = [
     name: "Men's Cotton Pant - Khaki",
     price: 45.0,
     description: "Comfort-fit khaki cotton pant.",
-    image: "/images/pants2.jpg",
+    image: "/images/Pants2.jpg",
     category: "Pant",
   },
   {
