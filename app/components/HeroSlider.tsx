@@ -1,8 +1,8 @@
 'use client';
 
 import { useKeenSlider } from 'keen-slider/react';
+import { KeenSliderInstance } from 'keen-slider';
 import 'keen-slider/keen-slider.min.css';
-import { useRef } from 'react';
 import Image from 'next/image';
 
 const images = [
@@ -12,13 +12,14 @@ const images = [
 ];
 
 export default function HeroSlider() {
-  // Autoplay plugin for Keen Slider
-  function AutoplayPlugin(slider: any) {
+  function AutoplayPlugin(slider: KeenSliderInstance) {
     let timeout: ReturnType<typeof setTimeout>;
     let mouseOver = false;
+
     function clearNextTimeout() {
       clearTimeout(timeout);
     }
+
     function nextTimeout() {
       clearTimeout(timeout);
       if (mouseOver) return;
@@ -26,6 +27,7 @@ export default function HeroSlider() {
         slider.next();
       }, 3000);
     }
+
     slider.on('created', () => {
       slider.container.addEventListener('mouseover', () => {
         mouseOver = true;
@@ -42,13 +44,16 @@ export default function HeroSlider() {
     slider.on('updated', nextTimeout);
   }
 
-  const [sliderRef] = useKeenSlider<HTMLDivElement>({
-    loop: true,
-    mode: 'snap',
-    slides: {
-      perView: 1,
+  const [sliderRef] = useKeenSlider<HTMLDivElement>(
+    {
+      loop: true,
+      mode: 'snap',
+      slides: {
+        perView: 1,
+      },
     },
-  }, [AutoplayPlugin]);
+    [AutoplayPlugin]
+  );
 
   return (
     <div ref={sliderRef} className="keen-slider rounded-lg overflow-hidden">

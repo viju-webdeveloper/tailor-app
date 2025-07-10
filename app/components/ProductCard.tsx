@@ -3,9 +3,16 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Product } from "../data/products";
+import Image from "next/image";
 
 interface Props {
   product: Product;
+}
+
+// ✅ define cart item type
+interface CartItem {
+  product: Product;
+  quantity: number;
 }
 
 export default function ProductCard({ product }: Props) {
@@ -13,9 +20,9 @@ export default function ProductCard({ product }: Props) {
   const router = useRouter();
 
   const handleAddToCart = () => {
-    // Simulate local cart addition (can be replaced with context later)
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    const existing = cart.find((item: any) => item.product.id === product.id);
+    const cart: CartItem[] = JSON.parse(localStorage.getItem('cart') || '[]');
+
+    const existing = cart.find((item: CartItem) => item.product.id === product.id);
 
     if (existing) {
       existing.quantity += 1;
@@ -29,15 +36,16 @@ export default function ProductCard({ product }: Props) {
   };
 
   const handleBuyNow = () => {
-    // Clear cart and add current product only
-    const cart = [{ product, quantity: 1 }];
+    const cart: CartItem[] = [{ product, quantity: 1 }];
     localStorage.setItem('cart', JSON.stringify(cart));
     router.push('/cart');
   };
 
   return (
     <div className="border rounded-xl shadow-md p-4 m-4 w-72 bg-white hover:shadow-xl transition flex flex-col">
-      <img
+      <Image
+        width={300}
+        height={480}
         src={product.image}
         alt={product.name}
         className="w-full h-48 object-cover rounded-md"

@@ -1,4 +1,5 @@
 import { Product } from '../data/products';
+import Image from 'next/image';
 
 interface CartItemProps {
   product: Product;
@@ -11,7 +12,9 @@ export default function CartItem({ product, quantity, onAdd, onRemove }: CartIte
   return (
     <div className="flex items-center justify-between border-b py-4">
       <div className="flex items-center space-x-4">
-        <img src={product.image} alt={product.name} className="w-24 h-24 object-cover rounded" />
+        <Image src={product.image} 
+        width={96} height={96}
+        alt={product.name} className="w-24 h-24 object-cover rounded" />
         <div>
           <h2 className="font-bold">{product.name}</h2>
           <p className="text-gray-600">${product.price.toFixed(2)}</p>
